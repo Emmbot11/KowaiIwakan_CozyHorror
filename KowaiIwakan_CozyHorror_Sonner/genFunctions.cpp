@@ -322,3 +322,95 @@ int MenuSystem::showHorizontalMenu(const std::vector<std::string>& options, cons
         }
     } while (true);
 }
+void MenuSystem::displayMenuNoClear(const std::vector<std::string>& options, int selected) {
+    // Move cursor to menu position (don't clear screen)
+    std::cout << "\n";
+
+    // Display each option with selection indicator
+    for (int i = 0; i < options.size(); i++) {
+        if (i == selected) {
+            std::cout << " > " << options[i] << std::endl;
+        }
+        else {
+            std::cout << "   " << options[i] << std::endl;
+        }
+    }
+
+    std::cout << "\nUse arrow keys to navigate, Enter to select";
+}
+
+int MenuSystem::showMenuNoClear(const std::vector<std::string>& options) {
+    if (options.empty()) return -1;
+
+    hideCursor();
+    int selected = 0;
+    int key;
+
+    // Store the starting cursor position
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    GetConsoleScreenBufferInfo(hConsole, &csbi);
+    COORD menuStartPos = csbi.dwCursorPosition;
+
+    // Display initial menu
+    std::cout << "\n";
+    for (int i = 0; i < options.size(); i++) {
+        if (i == selected) {
+            std::cout << " > " << options[i] << std::endl;
+        }
+        else {
+            std::cout << "   " << options[i] << std::endl;
+        }
+    }
+    std::cout << "\nUse arrow keys to navigate, Enter to select" << std::endl;
+
+    do {
+        key = _getch();
+
+        if (key == 224) {
+            key = _getch();
+            bool needsRedraw = false;
+
+            switch (key) {
+            case 72:  // Up arrow
+                selected = (selected - 1 + options.size()) % options.size();
+                needsRedraw = true;
+                break;
+            case 80:  // Down arrow
+                selected = (selected + 1) % options.size();
+                needsRedraw = true;
+                break;
+            }
+
+            if (needsRedraw) {
+                // Move cursor back to menu start position
+                SetConsoleCursorPosition(hConsole, menuStartPos);
+
+                // Redraw the menu
+                std::cout << "\n";
+                for (int i = 0; i < options.size(); i++) {
+                    if (i == selected) {
+                        std::cout << " > " << options[i];
+                    }
+                    else {
+                        std::cout << "   " << options[i];
+                    }
+                    // Clear to end of line to remove any leftover text
+                    std::cout << std::string(50, ' ') << "\r" << std::endl;
+                }
+                std::cout << "\nUse arrow keys to navigate, Enter to select";
+                std::cout << std::string(50, ' ') << "\r";  // Clear any leftover text
+            }
+        }
+        else if (key == 13) {  // Enter key
+            showCursor();
+            std::cout << "\n";  // Move to next line after selection
+            return selected;
+        }
+        else if (key == 27) {  // ESC key
+            showCursor();
+            std::cout << "\n";
+            return -1;
+        }
+    } while (true);
+}

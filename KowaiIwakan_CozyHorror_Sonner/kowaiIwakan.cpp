@@ -41,7 +41,7 @@ int main() {
 	cout << "*" << setfill('-') << setw(21) << "*" << setfill(' ') << endl;
 	cout << setw(17) << "Kowai Iwakan" << endl;
 	cout << "*" << setfill('-') << setw(21) << "*" << setfill(' ') << endl;
-	Sleep(1000);  // Brief pause for effect
+	Sleep(2000);  // Brief pause for effect
 	clearScreen();
 
 	// ========================================================================
@@ -52,11 +52,13 @@ int main() {
 	cout << "<" << setfill('-') << setw(21) << ">" << setfill(' ') << endl;
 	cout << setw(20) << "!!TRIGGER WARNING!!" << endl;
 	cout << "<" << setfill('-') << setw(21) << ">" << setfill(' ') << endl;
-	cout << setw(5) << ">" << " This game contains horror elements" << endl;
-	cout << setw(5) << ">" << " Disturbing imagery" << endl;
-	cout << setw(5) << ">" << " Psychological themes" << endl;
-	cout << setw(5) << ">" << " Player discretion advised" << endl;
-	Sleep(3000);  // Give player time to read warning
+	cout << setw(5) << ">" << " Discriptions of Gore" << endl;
+	cout << setw(5) << ">" << " Violence" << endl;
+	cout << setw(5) << ">" << " Death" << endl;
+	cout << setw(5) << ">" << " Fear" << endl;
+	cout << setw(5) << ">" << " Psycological Manipulation/Torture" << endl;
+	cout << setw(5) << ">" << " Sensative topics (Kidnapping, Homocide, Arson, Mental Instability)" << endl;
+	Sleep(4500);  // Give player time to read warning
 	clearScreen();
 
 	// ========================================================================
@@ -68,26 +70,15 @@ int main() {
 		mainchoice = menu.showMenu(mainOptions, "Main Menu");
 
 		switch (mainchoice) {
-			// --------------------------------------------------------------------
-			// START NEW GAME
-			// --------------------------------------------------------------------
-		case 0:
+		case 0:	// START NEW GAME
 			clearScreen();
 			gameManager.createNewGameMenu();  // Create new save and start story
 			break;
-
-			// --------------------------------------------------------------------
-			// LOAD EXISTING GAME
-			// --------------------------------------------------------------------
-		case 1:
+		case 1:	// LOAD EXISTING GAME
 			clearScreen();
 			gameManager.loadGameMenu();  // Display saved games and load selection
 			break;
-
-			// --------------------------------------------------------------------
-			// SETTINGS MENU
-			// --------------------------------------------------------------------
-		case 2:
+		case 2:	// SETTINGS MENU
 			clearScreen();
 			{
 				std::vector<std::string> settingsOptions = {
@@ -119,29 +110,18 @@ int main() {
 			cout << "   Thank you for playing!" << endl;
 			cout << "================================\n" << endl;
 			break;
-
-			// --------------------------------------------------------------------
-			// ESC KEY PRESSED
-			// --------------------------------------------------------------------
-		case -1:
+		case -1:	// ESC KEY PRESSED
 			clearScreen();
 			cout << "\nExiting game...\n" << endl;
 			break;
-
-			// --------------------------------------------------------------------
-			// INVALID SELECTION (Safety net)
-			// --------------------------------------------------------------------
-		default:
+		default:	// INVALID SELECTION (Safety net)
 			cout << "Invalid option!" << endl;
 			Sleep(1000);
 			break;
 		}
 
 	} while (mainchoice != 3 && mainchoice != -1);  // Exit loop on Exit or ESC
-
-	// ========================================================================
 	// PROGRAM EXIT
-	// ========================================================================
 
 	// Display final goodbye message
 	cout << endl;

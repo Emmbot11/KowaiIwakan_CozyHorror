@@ -118,7 +118,7 @@ private:
      * @return true if file exists and is accessible
      */
     bool fileExists(const std::string& filename);
-
+    void playPhoneConversation();
 public:
     // ------------------------------------------------------------------------
     // CONSTRUCTOR

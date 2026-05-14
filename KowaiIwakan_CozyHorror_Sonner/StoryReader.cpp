@@ -255,7 +255,7 @@ bool StoryReader::parseLoadChapterLine(const std::string& line, StorySection& se
 
 bool StoryReader::loadChapterFile(const std::string& chapterFile) {
     sections.clear();
-    currentChapterFile = chapterFile;  // Track current chapter
+    currentChapterFile = chapterFile;
 
     std::string fullPath = storyDirectory + chapterFile + ".txt";
     std::ifstream file(fullPath);
@@ -271,6 +271,17 @@ bool StoryReader::loadChapterFile(const std::string& chapterFile) {
     bool inSection = false;
 
     while (std::getline(file, line)) {
+        // Check for END marker FIRST (before section markers!)
+        if (line == "[END]") {
+            if (inSection && !currentSection.sectionID.empty()) {
+                if (!currentParagraph.empty()) {
+                    currentSection.textParagraphs.push_back(currentParagraph);
+                }
+                sections[currentSection.sectionID] = currentSection;
+            }
+            break;
+        }
+
         // Check if this is a section marker like [1] or [1a]
         if (line.length() > 2 && line[0] == '[' && line.back() == ']') {
             // Save previous section if it exists
@@ -296,25 +307,9 @@ bool StoryReader::loadChapterFile(const std::string& chapterFile) {
             continue;
         }
 
-        // Check for END marker
-        if (line == "[END]") {
-            if (inSection && !currentSection.sectionID.empty()) {
-                if (!currentParagraph.empty()) {
-                    currentSection.textParagraphs.push_back(currentParagraph);
-                }
-                sections[currentSection.sectionID] = currentSection;
-            }
-            break;
-        }
-
         // Process content
         if (inSection) {
-            // Check for EVENT line
-            if (line.find("EVENT:") == 0) {
-                currentSection.hasEvent = true;
-                parseEventLine(line, currentSection.event);
-                continue;
-            }
+            // Check for special commands FIRST (before processing as text/menu content)
 
             // Check for ITEM_ADD line
             if (line.find("ITEM_ADD:") == 0) {
@@ -325,7 +320,7 @@ bool StoryReader::loadChapterFile(const std::string& chapterFile) {
                 continue;
             }
 
-            // Check for NEXT line (for text sections)
+            // Check for NEXT line
             if (line.find("NEXT:") == 0) {
                 std::string next = line.substr(5);
                 next.erase(0, next.find_first_not_of(" \t"));
@@ -340,6 +335,14 @@ bool StoryReader::loadChapterFile(const std::string& chapterFile) {
                 continue;
             }
 
+            // Check for EVENT line
+            if (line.find("EVENT:") == 0) {
+                currentSection.hasEvent = true;
+                parseEventLine(line, currentSection.event);
+                continue;
+            }
+
+            // Now process based on section type
             if (currentSection.isMenu) {
                 // This is a menu section
                 if (line.find("OPTION:") == 0) {
@@ -409,9 +412,11 @@ bool StoryReader::loadChapterFile(const std::string& chapterFile) {
                 }
             }
         }
+
     }
 
     file.close();
+
     std::cout << "Loaded " << sections.size() << " sections from " << chapterFile << std::endl;
     return !sections.empty();
 }
@@ -432,41 +437,72 @@ bool StoryReader::getSection(const std::string& sectionID, StorySection& section
 
 // Display section with pronoun replacement
 void StoryReader::displaySection(const StorySection& section) {
-    // Don't clear screen for menus, only for text sections
+    // Only display text for NON-menu sections
+    // Menu sections are handled by showSectionMenu()
     if (!section.isMenu) {
         clearScreen();
         std::cout << "\n--- Section " << section.sectionID << " ---\n" << std::endl;
-    }
 
-    // Display text paragraphs WITH pronoun replacement
-    for (const auto& paragraph : section.textParagraphs) {
-        std::string processedText = replacePronouns(paragraph);
-        std::cout << processedText << "\n" << std::endl;
-        Sleep(800);  // Pause between paragraphs for effect
+        // Display text paragraphs WITH pronoun replacement
+        for (const auto& paragraph : section.textParagraphs) {
+            std::string processedText = replacePronouns(paragraph);
+            std::cout << processedText << "\n" << std::endl;
+            Sleep(5000);  // Pause between paragraphs for effect
+        }
     }
+    // If it IS a menu, do nothing - showSectionMenu() will handle it
 }
 
+
 // Show section menu with pronoun replacement
-int StoryReader::showSectionMenu(const StorySection& section) {
+int StoryReader::showSectionMenu(const StorySection& section, const std::vector<std::string>& previousText) {
     if (section.options.empty()) {
         return -1;
     }
 
-    // Display menu prompt WITH pronoun replacement
+    // Clear screen once
+    clearScreen();
+
+    // Display section ID
+    std::cout << "\n--- Section " << section.sectionID << " ---\n" << std::endl;
+
+    // Display PREVIOUS section's text first (if provided)
+    if (!previousText.empty()) {
+        for (const auto& paragraph : previousText) {
+            std::string processedText = replacePronouns(paragraph);
+            std::cout << processedText << "\n" << std::endl;
+            Sleep(800);
+        }
+    }
+
+    // Then display THIS section's text (menu prompt area)
+    for (const auto& paragraph : section.textParagraphs) {
+        std::string processedText = replacePronouns(paragraph);
+        std::cout << processedText << "\n" << std::endl;
+        Sleep(800);
+    }
+
+    // Wait for Enter
+    std::cout << "\n[Press Enter to continue...]" << std::endl;
+    std::cin.ignore(100, '\n');
+    std::cin.get();
+
+    // Display menu prompt
     if (!section.menuPrompt.empty()) {
         std::string processedPrompt = replacePronouns(section.menuPrompt);
         std::cout << "\n" << processedPrompt << "\n" << std::endl;
     }
 
-    // Create option strings for MenuSystem WITH pronoun replacement
+    // Create option strings
     std::vector<std::string> menuOptions;
     for (const auto& option : section.options) {
         std::string processedOption = replacePronouns(option.text);
         menuOptions.push_back(processedOption);
     }
 
+    // Show menu with arrow keys WITHOUT clearing screen
     MenuSystem menu;
-    return menu.showMenu(menuOptions, "");
+    return menu.showMenuNoClear(menuOptions);
 }
 
 // ============================================================================

@@ -53,7 +53,7 @@ private:
 
     bool isMenuSection(const std::string& sectionID);
     bool parseEventLine(const std::string& line, EventData& event);
-    bool parseLoadChapterLine(const std::string& line, StorySection& section);  // ADD THIS
+    bool parseLoadChapterLine(const std::string& line, StorySection& section);
     std::string replacePronouns(const std::string& text);
 
 public:
@@ -65,9 +65,10 @@ public:
     bool loadChapterFile(const std::string& chapterFile);
     bool getSection(const std::string& sectionID, StorySection& section);
     void displaySection(const StorySection& section);
-    int showSectionMenu(const StorySection& section);
+    int showSectionMenu(const StorySection& section, const std::vector<std::string>& previousText = std::vector<std::string>());
 
-    std::string getCurrentChapter();  // ADD THIS
+
+    std::string getCurrentChapter();
 
     // Event handling
     std::string handleEvent(const EventData& event);

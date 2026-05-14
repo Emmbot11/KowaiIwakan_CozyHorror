@@ -85,15 +85,13 @@ private:
     void hideCursor();
     void showCursor();
     void displayMenu(const std::vector<std::string>& options, int selected, const std::string& title);
-
-    // ADD THIS:
     void displayHorizontalMenu(const std::vector<std::string>& options, int selected, const std::string& title);
+    void displayMenuNoClear(const std::vector<std::string>& options, int selected);
 
 public:
     int showMenu(const std::vector<std::string>& options, const std::string& title);
-
-    // ADD THIS:
     int showHorizontalMenu(const std::vector<std::string>& options, const std::string& title);
+    int showMenuNoClear(const std::vector<std::string>& options);
 };
 /**
  * Displays a text message without the "typing" indicator

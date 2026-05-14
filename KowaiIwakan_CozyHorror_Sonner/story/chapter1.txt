@@ -1,0 +1,58 @@
+[1]
+The next morning came quickly. A bright ray of sun broke through {name}'s curtain, shining directly into {possessive} eyes. Groaning, {name} turned over in annoyance trying to escape the horrible looming idea that {subject} would have to get up soon and actually function without coffee. The coffee machine had broke the previous day with a loud 'FZZZ' that had made everyone freeze. Coffee, being the only thing keeping everyone --except Poppy who was still too young to drink coffee-- alive through a day, had then become the top priority. {possessive} dad had immediately gone online to find the best coffee machine and order it. To everyone's great disappointment the delivery was still 2 days away, so they had to make due. As {name} faded back into the blissful world of dreams a series of buzzes sounded from next to {object}. Turning over begrudgingly {subject} blearily picks up {possessive} phone to see the group chat talking about the meetup later today.
+NEXT: 1a
+
+[1a]
+The phone buzzes again.
+OPTION: Answer it | NEXT: PHONE_CONVERSATION
+OPTION: Silence it | NEXT: 3
+
+[2]
+{name} stared at the glowing phone screen for a moment longer, the corners of {possessive} mouth twitching upward ever so slightly. The group was loud, chaotic, and even confusing at times but it is warm. Warm in a way {subject} still wasn't entirely used to still. With a quiet groan, {name} finally forced {reflexive} upright. Every muscle complaining at the movement. The room around {object} was soft and familiar. Clothes tossed over a chair. Plush otter half hanging off the bed. The faint sound of movement and voices drifted up the stairs and— burnt toast. That definitely meant Dad was cooking again. Hopefully Eli was making some pancakes as well. Eli made the best pancakes, best part was he came up with the recipe and everything which meant that they were extremely healthy while still tasting like magic.
+NEXT: 3
+
+[3]
+{name} shuffled downstairs half asleep, oversized hoodie sleeves covering {possessive} hands completely. The kitchen was already alive with noise and movement. Poppy sat at the counter dramatically face-down against the surface. "I miss coffee..." she mumbled weakly. "But you don't drink coffee?" {name} replied, confused by the statement from the little girl who was now glaring daggers at the broken machine which had yet to be moved off of it's old spot on the counter. "Well yes, but Eli said he didn't have enough coffee in him to make is amazing pancakes!!!" {name} groaned, joining Poppy in her sulk while their dad laughed quietly from in front of the toaster. Coming back down the stairs Eli leaned against the counter, hair messy, looking equally as exhausted. The second he noticed {name}, his posture relaxed slightly. "There you are," he said quietly. {name} blinked slowly and deadpanned, "Unfortunately. No pancakes! Really?" Eli snorted softly. "Morning sweetheart." {possessive} mother said as she walked into the kitchen. {name} nodded and quietly greeted back, "Good morning." Poppy lifted her head slightly {name} and claimed "You look dead." The banter came easily as the small family enjoyed each others presence.
+NEXT: 3a
+
+[3a]
+What would you like to do?
+OPTION: Sit beside Eli | NEXT: 4
+OPTION: Help make breakfast | NEXT: 5
+OPTION: Steal food and hide at the table | NEXT: 6
+
+[4]
+{name} slid onto the stool beside Eli quietly. For a moment neither of them spoke just being present together. Eli gently nudged {object} with his elbow, "Nervous?" he asked softly enough that only {subject} could hear. {name} hesitated, "...a little." That earned {object} a softer expression immediately. "It isn't training," he reminded gently. "I know." {name} said pausing momentarily before whispering, "...Noah notices too much though." Eli laughed quietly and said "Yeah. That's because Noah was born eighty years old." A tiny smile tugged at {name}'s face at the thought. Eli noticed instantly and grinned victoriously.
+NEXT: 7
+
+[5]
+{name} quietly moved toward the stove. {Possessive} dad immediately looked relieved as he said, "Oh thank goodness. Please save breakfast!" {name} examined the pan carefully and paused in horror, "...this has suffered damage." {Possessive} dad laughed nervously rubbing the back of his neck "I know." Eli snorted from across the kitchen while Poppy looked personally offended by the "eggs" if you could even call them that. {Name} carefully took over cooking while {possessive} dad dramatically thanked {object} for "saving the family." It was... nice. Domestic. Safe. A kind of normal {subject} still wasn't entirely sure how to handle, none of them were but they were getting better together.
+NEXT: 7
+
+[6]
+{name} silently stole a piece of toast and retreated to the table like a racoon protecting stolen treasure. Poppy pointed immediately and called "Food thief!" Quickly scarfing the piece down {name} muffled out "No proof~" through the mouthful of toast. Elinearly choked on the water he was drinking because of his surprised laughter. {Possessive} mom sighed dramatically "We raised criminals." she said while placing her hand dramatically in the center of her chest, fake hurt on her face. "Incorrect," {name} replied seriously, "We were already criminals." The room went deathly silent, then everyone burst out laughing. {Name} blinked in confusion and questioned "...I stated a fact." laughing again Poppy called, "You are SUCH a little weirdo!" Eli snorted and replied "Coming from the shortest person in this house~?" Offended Poppy retorted with another piece of banter. Watching them all being a family had warmth spreading through {name}'s chest while {subject} smiled brightly.
+NEXT: 7
+
+[7]
+Eventually the conversation shifted toward getting ready for the outting with their friends. Eli stretched with a groan before looking toward {name} and asked, "You got your bag?" {Name} blinked. "...yes." "Phone charged?" "...yes." "Water?" "...yes." Poppy gasped dramatically and giggled "Wow. Eli's gone full mom mode." "I learned from the best!" "That's right!" their mom called from the other room. {Name} quietly watched the interactions between her family. The teasing, and softness were still strange sometimes. But good. Very, very good.
+NEXT: 8
+
+[8]
+A car horn sounded outside Loud and long. Sophie and Maya were here. They had most likely picked up Noah and Jordan on the way here. As they stepped out of the door the front passenger seat window rolled down and Maya stuck her head out yelling "GET IN LOOSERS WERE GOING SHOPPING!!!" {name} stopped and asked "I though we were going to the laser gun game." Maya quirked a brow and said "You've never seen 'Mean Girls'??" {name} shook {possessive} head 'no'. Maya gasped and said "Well that's just Absolutely UNexcEPTable!! We must remedy this as SOON as possible!!" Before Maya could get another word out, Sophie pulled he back into the car and rolled up the window. Eli grinned and said, "She's so loud." "You love her." "...unfortunately."
+NEXT: 9
+
+[9]
+The moment the car door opened, noise flooded out. Mya waved enthusiastically from the passenger's seat as if she hadn't just yelled across the yard to them two seconds ago. Sophie sat in the driver seat smiling warmly. Jordan and Noah occupied two seats in the back. While the bag of snacks sat in one of the middle row seats. Which unfortunately meant... Very little room remained. {Name} immediately slowed as {subject} saw the arraignment. Too close. Too cramped. Too many people. Too much. Eli noticed instantly. Without making it obvious, he lightly bumped {possessive} shoulder twice to signal that it is safe and to help ground {name}. Exhaling slowly, {subject} decided to sit...
+NEXT: 9a
+
+[9a]
+OPTION: Sit between Jordan and Noah | NEXT: 10
+OPTION: Sit beside Eli | NEXT: 11
+
+[10]
+Coming soon!
+
+[11]
+coming soon!
+
+[END]

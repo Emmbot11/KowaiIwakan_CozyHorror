@@ -467,21 +467,42 @@ void GameManager::saveGame() {
 
 
 void GameManager::startGame() {
+    //hideCursor();
+    clearScreen();
+    Sleep(1000);
+    cout << "Loading ";
+    Sleep(1000);
+    cout << ". ";
+    Sleep(1000);
+    cout << ". ";
+    Sleep(1000);
+    cout << ". " << endl;
+    Sleep(3000);
+    cout << endl;
+    cout << "Have fun~ (^*u*^)" << endl;
+    Sleep(1500);
+    //showCursor();
     // Display the intro conversation with typing indicators
     clearScreen();
 
-    std::cout << "================================" << std::endl;
-    std::cout << "      GROUP CHAT: Squad 🎮      " << std::endl;
-    std::cout << "================================\n" << std::endl;
+    std::cout << "=====================================" << std::endl;
+    std::cout << "      CHAT: Emotionally UnStaBlE      " << std::endl;
+    std::cout << "=====================================\n" << std::endl;
     Sleep(1000);
-
+    //ADD IN TEXTS FROM COMPLEATLY RANDOM CONVERSATION!!!!!!!!
+    
     // Show messages with typing delays that get replaced
-    displayTextMessage("Yuki", "Hey everyone! Who wants to hit the mall today?", 1500);
-    displayTextMessage("Kai", "I'm down! Need to grab some new headphones anyway", 1200);
-    displayTextMessage("Mira", "Ooh yes! I heard they opened a new arcade there!", 1800);
-    displayTextMessage("Yuki", state.playerName + ", you coming? 👀", 1000);
-    displayTextMessage("Kai", "Come on " + state.playerName + "! It'll be fun!", 1300);
-    displayTextMessage("Mira", "Pleeeease come with us! 🙏", 1000);
+    displayTextMessage("Maya", "ANNIVERSARY PLANNNSSSS!!!!!", 1500);
+    displayTextMessage("Jordan", "Why are we yelling at 6am?", 1200);
+    displayTextMessage("Maya", "ABANDONED MALL TRIP~", 1800);
+    displayTextMessage("Noah", "That is just trespasing with extra Asbestos.", 1150);
+    displayTextMessage("Sophie", "Like the old mall where we all met?", 1300);
+    displayTextMessage("Maya", "HECK YAH!!", 1000);
+    displayTextMessage("Jordan", "But why there? They have been condemned for demolition for years.", 1400);
+    displayTextMessage("Maya", "Because! mEmORieS~~!!", 1100);
+    displayTextMessage("Sopie", "Oh! Don't they still have the one event set up that they had prepared before the building was evacuated?", 1600);
+    displayTextMessage("Maya", "Yuppp~~~", 1250);
+    displayTextMessage("Eli", state.playerName + "? Thoughts?", 1000);
 
     Sleep(1000);
 
@@ -495,20 +516,35 @@ void GameManager::startGame() {
     };
 
     MenuSystem menu;
-    int choice = menu.showHorizontalMenu(choiceOptions, "Go to the mall with your friends?");
+    int choice = menu.showHorizontalMenu(choiceOptions, "Go to the Abandoned mall with your friends?");
 
     std::string chapterToLoad = "";
 
     if (choice == 0) {  // YES - Go to the mall
         clearScreen();
-        std::cout << "\n[You decide to go to the mall with your friends...]" << std::endl;
-        Sleep(2000);
+        std::cout << "=====================================" << std::endl;
+        std::cout << "      CHAT: Emotionally UnStaBlE      " << std::endl;
+        std::cout << "=====================================\n" << std::endl;
+        // Show messages with typing delays that get replaced
+        cout << "Maya: ANNIVERSARY PLANNNSSSS!!!!!" << endl;
+        cout << "Jordan: Why are we yelling at 6am?" << endl;
+        cout << "Maya: ABANDONED MALL TRIP~" << endl;
+        cout << "Noah: That is just trespasing with extra Asbestos." << endl;
+        cout << "Sophie: Like the old mall where we all met?" << endl;
+        cout << "Maya: HECK YAH!!" << endl;
+        cout << "Jordan: But why there? They have been condemned for demolition for years." << endl;
+        cout << "Maya: Because! mEmORieS~~!!" << endl;
+        cout << "Sopie: Oh! Don't they still have the one event set up that they had prepared before the building was evacuated?" << endl;
+        cout << "Maya: Yuppp~~~" << endl;
+        cout << "Eli: " << state.playerName << "? Thoughts?" << endl;
+        displayTextMessage(state.playerName, "Sure...", 900);
+        displayTextMessage("Maya", "YESHHHH!!!!! WOOOO! That's the plan then!! See you guys TONIGHT at 11 in front of the old malllll~~!!", 1500);
+        displayTextMessage("Eli", "Great! WAIT 11PM??!! WHy sOo lATe??!", 1000);
 
         // Random number generator (1-5)
         srand(static_cast<unsigned int>(time(0)));
         int randomNum = (rand() % 5) + 1;
 
-        std::cout << "\n[Loading your story...]" << std::endl;
         Sleep(1500);
 
         // Determine game type based on random number
@@ -516,19 +552,109 @@ void GameManager::startGame() {
             // HORROR GAME
             state.gameType = 1;
             chapterToLoad = "chapter1H";
-            std::cout << "[The mall feels... different today...]" << std::endl;
+            std::cout << "[This should be fun! Hopefully...]" << std::endl;
         }
         else {  // randomNum == 1, 3, or 5
             // COZY GAME
             state.gameType = 2;
             chapterToLoad = "chapter1C";
-            std::cout << "[Time for a fun day at the mall!]" << std::endl;
+            std::cout << "[This should be fun! Hopefully...]" << std::endl;
         }
 
     }
     else if (choice == 1) {  // NO - Stay home
         clearScreen();
-        std::cout << "\n[You decide to stay home and relax...]" << std::endl;
+        std::cout << "=====================================" << std::endl;
+        std::cout << "      CHAT: Emotionally UnStaBlE      " << std::endl;
+        std::cout << "=====================================\n" << std::endl;
+        cout << "Maya: ANNIVERSARY PLANNNSSSS!!!!!" << endl;
+        cout << "Jordan: Why are we yelling at 6am?" << endl;
+        cout << "Maya: ABANDONED MALL TRIP~" << endl;
+        cout << "Noah: That is just trespasing with extra Asbestos." << endl;
+        cout << "Sophie: Like the old mall where we all met?" << endl;
+        cout << "Maya: HECK YAH!!" << endl;
+        cout << "Jordan: But why there? They have been condemned for demolition for years." << endl;
+        cout << "Maya: Because! mEmORieS~~!!" << endl;
+        cout << "Sopie: Oh! Don't they still have the one event set up that they had prepared before the building was evacuated?" << endl;
+        cout << "Maya: Yuppp~~~" << endl;
+        cout << "Eli: " << state.playerName << "? Thoughts?" << endl;
+        displayTextMessage(state.playerName, "Maybe not. Could get in trouble...", 900);
+        displayTextMessage(state.playerName, "What about the light gun chase game?", 900);
+        displayTextMessage("Maya", "THE WHAT T^T", 1900);
+        displayTextMessage("Jordan", "Laser Tag???", 1000);
+        displayTextMessage("Noah", "Please never correct that name.", 1000);
+        displayTextMessage("Eli", "I support this renaming!", 1500);
+        displayTextMessage("Sophie", "That sounds like a lot of fun! Maybe we could even get food and ice cream after!", 1600);
+        displayTextMessage("Maya", "BOOKING NOW!!!!! EEEEEEEE THis is going toe bee AMAZING!!!!!", 1400);
+        Sleep(2000);
+        cout << endl;
+        cout << endl;
+        cout << "You have a message from Sophie, and a message from Eli";
+        std::vector<std::string> textChoice = {
+            "PM with Sophie",
+            "PM with Eli",
+            "Ignore"
+        };
+        int chatChoice = menu.showMenu(textChoice, "What would you like to do?");
+        if (chatChoice == 0) {
+            clearScreen();
+            std::cout << "=====================================" << std::endl;
+            std::cout << "        PM: Peace Personified?      " << std::endl;
+            std::cout << "=====================================\n" << std::endl;
+            cout << "Sophie: Hey." << endl;
+            displayTextMessage("Sophie", "You ok with changing plans?", 1000);
+            displayTextMessage("Sophie", "You seemed nervious about the mall...", 1000);
+            displayTextMessage("Sophie", "You don't have to explain anything, but I'm here if you need to talk!", 1000);
+            Sleep(1000);
+            std::cout << "\n================================\n" << std::endl;
+
+            // Present the choice with horizontal menu (conversation stays visible above)
+            std::vector<std::string> heartPMChoice = {
+                "Thanks",
+                "Just don't want to go.",
+                "Ignore"
+            };
+            int heartPM = menu.showMenu(heartPMChoice, "What would you like to do?");
+            Sleep(2000);
+        }
+        else if (chatChoice == 1) {
+            clearScreen();
+            std::cout << "=====================================" << std::endl;
+            std::cout << "        PM: Brother Dearest      " << std::endl;
+            std::cout << "=====================================\n" << std::endl;
+            cout << "Eli: Good call." << endl;
+            displayTextMessage("Eli", "I didn't want to go either.", 1000);
+            displayTextMessage("Eli", "Also, 'Light Gun Chace Game' is the best renaming you have ever done!", 1000);
+            Sleep(1000);
+            std::cout << "\n================================\n" << std::endl;
+            Sleep(2000);
+        }
+        clearScreen();
+        std::cout << "=====================================" << std::endl;
+        std::cout << "      CHAT: Emotionally UnStaBlE      " << std::endl;
+        std::cout << "=====================================\n" << std::endl;
+        cout << "Sopie: Oh! Don't they still have the one event set up that they had prepared before the building was evacuated?" << endl;
+        cout << "Maya: Yuppp~~~" << endl;
+        cout << "Eli: " << state.playerName << "? Thoughts?" << endl;
+        cout << state.playerName << ": Maybe not. Could get in trouble..." << endl;
+        cout << state.playerName << ": What about the light gun chase game?" << endl;
+        cout << "Maya: THE WHAT T^T" << endl;
+        cout << "Jordan: Laser Tag???" << endl;
+        cout << "Noah: Please never correct that name." << endl;
+        cout << "Eli: I support this renaming!" << endl;
+        cout << "Sophie: That sounds like a lot of fun! Maybe we could even get food and ice cream after!" << endl;
+        cout << "Maya: BOOKING NOW!!!!! EEEEEEEE THis is going toe bee AMAZING!!!!!" << endl;
+        displayTextMessage("Noah", "Important question:", 1000);
+        displayTextMessage("Noah", "Are alliances allowed?", 1100);
+        displayTextMessage("Jordan", "Coward question", 1000);
+        displayTextMessage("Maya", "NO MERCY!!!!!", 1300);
+        displayTextMessage("Eli", "Why do I feel like we just released a deamon? -w-'", 1200);
+        displayTextMessage(state.playerName, "No. We just fed the gremlin after midnight.", 1250);
+        displayTextMessage("Jordan", "You know that refferance?", 1800);
+        displayTextMessage("Eli", "WHERE DID YOU LEARN THAT??!!!", 1000);
+        displayTextMessage(state.playerName, "Maya and I watched it a few weeks ago when everyone else was buisy.", 1200);
+        displayTextMessage("Maya", "HECK YAH WE DID!!!! And I regrest NOTHING!", 1100);
+        displayTextMessage("Eli", "TnT", 1000);
         Sleep(2000);
 
         // HEALING GAME
@@ -564,10 +690,18 @@ void GameManager::startGame() {
         return;
     }
 
-    // [REST OF YOUR EXISTING GAME LOOP CODE STAYS THE SAME]
-    // Continue with the while loop you already have...
+    // Track previous section's text for menus
+    std::vector<std::string> previousSectionText;
 
     while (true) {
+        // Check for special trigger sections BEFORE trying to load from file
+        if (currentSectionID == "PHONE_CONVERSATION") {
+            playPhoneConversation();
+            currentSectionID = "2";
+            previousSectionText.clear();  // Clear after custom function
+            continue;
+        }
+
         StorySection section;
 
         if (!reader.getSection(currentSectionID, section)) {
@@ -576,12 +710,12 @@ void GameManager::startGame() {
             break;
         }
 
-        // Display the section
+        // Display the section (only for non-menu sections)
         reader.displaySection(section);
 
-        // Check if section adds an item
-        if (!section.itemToAdd.empty()) {
-            reader.addItem(section.itemToAdd);
+        // If this is a text section, save its text for the next menu
+        if (!section.isMenu && !section.textParagraphs.empty()) {
+            previousSectionText = section.textParagraphs;
         }
 
         // Check if section loads a new chapter
@@ -608,9 +742,12 @@ void GameManager::startGame() {
             }
         }
 
+        // Display the section
+        reader.displaySection(section);
+
         if (section.isMenu) {
             if (section.hasEvent) {
-                int choice = reader.showSectionMenu(section);
+                int choice = reader.showSectionMenu(section, previousSectionText);
 
                 if (choice == -1 || choice >= section.options.size()) {
                     std::cout << "Exiting story..." << std::endl;
@@ -636,6 +773,7 @@ void GameManager::startGame() {
                         if (reader.loadChapterFile(selectedOption.loadChapter)) {
                             currentChapter = selectedOption.loadChapter;
                             currentSectionID = selectedOption.loadStartSection.empty() ? "1" : selectedOption.loadStartSection;
+                            previousSectionText.clear();  // Clear when loading new chapter
                         }
                         else {
                             std::cout << "Error loading chapter!" << std::endl;
@@ -648,7 +786,7 @@ void GameManager::startGame() {
                 }
             }
             else {
-                int choice = reader.showSectionMenu(section);
+                int choice = reader.showSectionMenu(section, previousSectionText);
 
                 if (choice == -1 || choice >= section.options.size()) {
                     std::cout << "Exiting story..." << std::endl;
@@ -670,6 +808,7 @@ void GameManager::startGame() {
                     if (reader.loadChapterFile(selectedOption.loadChapter)) {
                         currentChapter = selectedOption.loadChapter;
                         currentSectionID = selectedOption.loadStartSection.empty() ? "1" : selectedOption.loadStartSection;
+                        previousSectionText.clear();  // Clear when loading new chapter
                     }
                     else {
                         std::cout << "Error loading chapter!" << std::endl;
@@ -680,6 +819,9 @@ void GameManager::startGame() {
                     currentSectionID = selectedOption.nextSection;
                 }
             }
+
+            // Clear previous text after showing menu
+            previousSectionText.clear();
         }
         else {
             if (!section.nextSection.empty()) {
@@ -763,18 +905,78 @@ bool GameManager::decodeGameState(const std::string& code) {
 void GameManager::playIntroConversation() {
     clearScreen();
 
-    std::cout << "================================" << std::endl;
-    std::cout << "      GROUP CHAT: Squad 🎮      " << std::endl;
-    std::cout << "================================\n" << std::endl;
+    std::cout << "=====================================" << std::endl;
+    std::cout << "      CHAT: Emotionally UnStaBlE      " << std::endl;
+    std::cout << "=====================================\n" << std::endl;
     Sleep(1000);
 
-    // Simulate group chat conversation with typing delays
-    displayTextMessage("Yuki", "Hey everyone! Who wants to hit the mall today?", 1500);
-    displayTextMessage("Kai", "I'm down! Need to grab some new headphones anyway", 1200);
-    displayTextMessage("Mira", "Ooh yes! I heard they opened a new arcade there!", 1800);
-    displayTextMessage("Yuki", state.playerName + ", you coming? 👀", 1000);
-    displayTextMessage("Kai", "Come on " + state.playerName + "! It'll be fun!", 1300);
-    displayTextMessage("Mira", "Pleeeease come with us! 🙏", 1000);
+    // Show messages with typing delays that get replaced
+    displayTextMessage("Maya", "ANNIVERSARY PLANNNSSSS!!!!!", 1500);
+    displayTextMessage("Jordan", "Why are we yelling at 6am?", 1200);
+    displayTextMessage("Maya", "ABANDONED MALL TRIP~", 1800);
+    displayTextMessage("Noah", "That is just trespasing with extra Asbestos.", 1150);
+    displayTextMessage("Sophie", "Like the old mall where we all met?", 1300);
+    displayTextMessage("Maya", "HECK YAH!!", 1000);
+    displayTextMessage("Jordan", "But why there? They have been condemned for demolition for years.", 1400);
+    displayTextMessage("Maya", "Because! mEmORieS~~!!", 1100);
+    displayTextMessage("Sopie", "Oh! Don't they still have the one event set up that they had prepared before the building was evacuated?", 1600);
+    displayTextMessage("Maya", "Yuppp~~~", 1250);
+    displayTextMessage("Eli", state.playerName + "? Thoughts?", 1000);
 
-    Sleep(500);
+    Sleep(2000);
+}
+void GameManager::playPhoneConversation() {
+    clearScreen();
+
+    std::cout << "=====================================" << std::endl;
+    std::cout << "      CHAT: Emotionally UnStaBlE      " << std::endl;
+    std::cout << "=====================================\n" << std::endl;
+    Sleep(1000);
+
+    // Show messages with typing delays that get replaced
+    displayTextMessage("Maya", "WAKE UP SOLDIERS", 1500);
+    displayTextMessage("Maya", "WHO IS READY TO GET ABSOLUTELY DESTROYED TODAY???", 1300);
+    displayTextMessage("Jordan", "it is 8 am...why are you yelling.", 1200);
+    displayTextMessage("Maya", "WAR HAS NO CLOCK!", 1800);
+    displayTextMessage("Noah", "It literally does.", 1150);
+    displayTextMessage("Maya", "BECAUSE I HAVE ENERGY!!!!!!!!!", 1800);
+    displayTextMessage("Noah", "Statistically speaking, Maya, your energy levels are concerning.", 1300);
+    displayTextMessage("Maya", "StaTIsTicaLLy speaking YOU need to touch GRASS!!~", 1400);
+    displayTextMessage("Sophie", "Good morning everyone :)", 1000);
+    displayTextMessage("Sophie", "Did everyone sleep okay?", 1400);
+    displayTextMessage("Eli", "No.", 1000);
+    displayTextMessage("Eli", "Coffee machine dead.", 1000);
+    displayTextMessage("Eli", "Morale critical (XoX)", 1000);
+    displayTextMessage("Jordan", "RIP!", 1200);
+    displayTextMessage("Noah", "Oh how tragic.", 1400);
+    displayTextMessage("Maya", "WAIT the coffee machine EXPLODED???!!", 1000);
+    displayTextMessage("Eli", "Violently.", 1000);
+    displayTextMessage("Eli", "Smoke included.", 1000);
+    displayTextMessage("Eli", "Poppy cried. TnT", 1000);
+    displayTextMessage("Sophie", "Awww :( <3", 1200);
+    displayTextMessage("Eli", "Dad almost held a funeral.", 1000);
+    displayTextMessage("Jordan", "A valid responce!", 1200);
+    displayTextMessage("Noah", "I would also mourn. That machine made a good cup of coffee", 1000);
+    displayTextMessage("Eli", state.playerName + " is awake.", 1000);
+    displayTextMessage("Eli", "I can sense it.", 1000);
+    displayTextMessage(state.playerName, "No.", 1200);
+    displayTextMessage("Eli", "Lies!!", 1000);
+    displayTextMessage("Noah", "Wow so " + state.playerName + "s not nocturnal.", 1000);
+    displayTextMessage(state.playerName, "Negative.", 1200);
+    displayTextMessage(state.playerName, "Currently dying from lack of jitter juice.", 1300);
+    displayTextMessage("Jordan", "Same tbh.", 1000);
+    displayTextMessage("Sophie", "Did you at least sleep okay?", 1100);
+    displayTextMessage(state.playerName, "Acceptable unconscious duration achieved.", 1300);
+    displayTextMessage("Maya", "What are you??? A Robot!!?", 1000);
+    displayTextMessage(state.playerName, "Incorrect.", 1400);
+    displayTextMessage(state.playerName, "Robots have better sleep schedules.", 1000);
+    displayTextMessage("Eli", "Well, she's got you there~", 1200);
+    displayTextMessage("Noah", "Pickup still 11?", 1000);
+    displayTextMessage("Sophie", "Yup! :)", 1200);
+    displayTextMessage("Sophie", "I made snacks as well! So, we can have some lunch on the way there.", 1000);
+    displayTextMessage("Maya", "SOPHIE MY BELOVED <<<3333  <(*u*)>", 1200);
+    displayTextMessage("Eli", "See you nerds soon!~", 1000);
+    displayTextMessage("Eli", "Can't wait to destroy you all in laser tag~~ ^(U3U)^", 1000);
+
+    Sleep(2000);
 }
